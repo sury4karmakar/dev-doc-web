@@ -63,6 +63,15 @@ const config: Config = {
         sidebarPath: "./sidebarsGit.ts",
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "docker-docs",
+        path: "docker-docs",
+        routeBasePath: "docker",
+        sidebarPath: "./sidebarsDocker.ts",
+      },
+    ],
   ],
 
   themeConfig: {
@@ -90,6 +99,13 @@ const config: Config = {
           docsPluginId: "git-docs",
           position: "left",
           label: "Git",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "dockerSidebar",
+          docsPluginId: "docker-docs",
+          position: "left",
+          label: "Docker",
         },
         {
           href: "https://github.com/sury4karmakar",
