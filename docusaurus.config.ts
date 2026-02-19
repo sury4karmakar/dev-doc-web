@@ -53,6 +53,18 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "git-docs",
+        path: "git-docs",
+        routeBasePath: "git",
+        sidebarPath: "./sidebarsGit.ts",
+      },
+    ],
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
@@ -71,6 +83,13 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           position: "left",
           label: "Tutorial",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "gitSidebar",
+          docsPluginId: "git-docs",
+          position: "left",
+          label: "Git",
         },
         {
           href: "https://github.com/sury4karmakar",
