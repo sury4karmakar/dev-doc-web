@@ -72,6 +72,15 @@ const config: Config = {
         sidebarPath: "./sidebarsDocker.ts",
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "database-docs",
+        path: "database-docs",
+        routeBasePath: "database",
+        sidebarPath: "./sidebarsDb.ts",
+      },
+    ],
   ],
 
   themeConfig: {
@@ -106,6 +115,13 @@ const config: Config = {
           docsPluginId: "docker-docs",
           position: "left",
           label: "Docker",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "dbSidebar",
+          docsPluginId: "database-docs",
+          position: "left",
+          label: "Database",
         },
         {
           href: "https://github.com/sury4karmakar",
