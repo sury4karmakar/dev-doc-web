@@ -300,4 +300,95 @@ Different interfaces exist for these operations:
 
 ---
 
-Database Objects and Hierarchy
+# Database Objects and Hierarchy
+
+## 1. Overview of Hierarchy
+
+Relational Database Management Systems (RDBMS) organize various objects (tables, constraints, indexes) in a hierarchical structure. This organization enables administrators to effectively manage security, maintenance, and accessibility.
+
+**General Hierarchy Structure:**
+
+- **Instance:** The highest level; a logical boundary.
+- **Database:** Contained within an instance.
+- **Schema:** A logical grouping within a database.
+- **Objects:** The actual data structures (tables, views, etc.) within a schema.
+
+---
+
+## 2. Database Instance
+
+An instance represents a logical boundary for a database or set of databases. It organizes objects and sets configuration parameters.
+
+- **Function:**
+- Acts as a distinct environment.
+- Has its own set of system catalog tables (tracking objects).
+- Has its own configuration files.
+
+- **Isolation:** Objects within one instance are isolated from those in another.
+- **Deployment:** Multiple instances can exist on a single physical server, creating distinct server environments.
+- **Cloud Context:** In cloud databases, "instance" often refers to a specific running copy of a service.
+
+---
+
+## 3. Relational Database
+
+A relational database is a collection of objects designed for the storage, management, and retrieval of data.
+
+- **Composition:** Includes tables, views, indexes, functions, triggers, and packages.
+- **Object Types:**
+- **System Objects:** Built-in / defined by the system.
+- **User-Defined Objects:** Created by users to store business data.
+
+- **Relationships:** Engineers establish relationships between tables to reduce redundancy and improve data integrity.
+- **Distributed Database:** A type where tables and other objects are shared across different interconnected computer systems.
+
+---
+
+## 4. Schemas
+
+A **Schema** is a specialized database object used to logically group other database objects.
+
+### Key Functions
+
+1. **Logical Grouping:** Can contain tables, views, nicknames, triggers, functions, and packages.
+2. **Naming Context (Namespace):**
+
+- Prevents ambiguous references.
+- Allows objects with the same name to exist in different schemas (e.g., `Internal.Sales` vs. `External.Sales`).
+
+3. **Assignment:**
+
+- **Explicit:** You can assign an object to a specific schema by including the schema name during creation.
+- **Implicit:** If no name is specified, the object is assigned to the **default schema** (usually the current user's schema).
+
+### Types of Schemas
+
+- **User Schema:** Stores user-defined objects like tables and views.
+- **System Schema:** Stores configuration info and metadata (e.g., lists of users, access permissions, index details).
+
+---
+
+## 5. Partitioning
+
+Partitioning involves distributing and managing data across multiple segments within the system.
+
+- **Table Partitioning:** Splitting large tables into multiple logical partitions, where each contains a subset of data.
+- **Use Case:** Critical for large volumes of data, such as Data Warehousing and Business Intelligence, to enhance query performance.
+
+---
+
+## 6. Specific Database Objects
+
+Database design involves defining these objects and their relationships.
+
+| Object          | Description                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------------- |
+| **Tables**      | Logical structures consisting of rows and columns that store the actual data.                     |
+| **Constraints** | Rules enforced on data to ensure validity (e.g., ensuring an Employee ID is unique).              |
+| **Indexes**     | A set of pointers used to improve query performance and ensure data uniqueness.                   |
+| **Views**       | A virtual representation of data from one or more tables. It does **not** store data permanently. |
+| **Aliases**     | An alternative, often shorter, name for an object (like a table) to simplify referencing.         |
+
+**Management:** These objects are created and managed using **DDL (Data Definition Language)** statements like `CREATE` or `ALTER`, via GUIs, scripts, or APIs.
+
+# --
